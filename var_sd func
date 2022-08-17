@@ -1,0 +1,12 @@
+def var_sd(listX):
+    import numpy as np
+    from math import sqrt
+    listX = np.array(listX)
+    mean = listX.mean()
+    n = len(listX)
+    num = np.repeat(0,len(listX))
+    for i in range(0,n):
+        num[i] = (listX[i]-mean)**2
+    var = sum(num)/n
+    sd = sqrt(var)
+    return(print(f"Var is {var}, and SD is {sd}"))
