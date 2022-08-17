@@ -1,0 +1,5 @@
+import pandas as pd
+from scipy import stats
+df = pd.read_csv("C:\\Users\\namanjain8\\Documents\\Python Scripts_Composite Analysis\\Before_After.csv")
+stats.ttest_rel(df['Before Course'],df['After Course'])
+Ttest_relResult(statistic=-3.445359719553577, pvalue=0.005472667818346521)
