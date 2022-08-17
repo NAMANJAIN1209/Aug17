@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+tab = pd.DataFrame({'Observed':[41,59],'Expected':[33,67]})
+def chi_sq(data,Observed,Expected):
+    data['Obs_Exp']=((tab[Observed]-tab[Expected])**2)/tab[Expected]
+    chisq = sum(data['Obs_Exp'])
+    return(chisq)
+cal_chi = chi_sq(tab,'Observed','Expected')
+2.8946178199909545
+tabulated_chi = 3.84
+alpha = 0.05
+if cal_chi > tabulated_chi:
+    print(f"We have enough evidence to reject null hypothesis and therefore, there is a significant diffrence in observed and actual data at {alpha} LOS ")
+else:
+    print(f"We do not have enough evidence to reject null hypothesis and therefore, there is no significant diffrence in observed and actual data at {alpha} LOS ")
+We do not have enough evidence to reject null hypothesis and therefore, there is no significant diffrence in observed and actual data at 0.05 LOS 
