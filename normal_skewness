@@ -1,0 +1,34 @@
+def average(listX):
+    get_sum = sum(listX)
+    n = len(listX)
+    average= get_sum/n
+    return(average)
+
+def mode(listX):
+    from scipy.stats import mode
+    md = mode(listX)
+    return(md[0])
+
+def std_dev(listX):
+    import numpy as np
+    from math import sqrt
+    listX = np.array(listX)
+    m = listX.mean()
+    n = len(listX)
+    num = np.repeat(0,len(listX))
+    for i in range(0,n):
+        num[i] = (listX[i]-m)**2
+    var = sum(num)/n
+    sd = sqrt(var)
+    return(sd)
+
+def skewness(pop):
+    avg = average(pop)
+    md = mode(pop)
+    sd = std_dev(pop)
+    skewness = (avg-md)/sd
+    return(int(skewness))
+    
+    population = np.random.normal(loc=0,scale=1,size=1000)
+    skewness(population)
+      3
